@@ -5,10 +5,12 @@ import (
 )
 
 func main() {
-	words := []string{"gin", "zen", "gig", "msg"}
-	var l int
-	l = preorderTraversal()
-	fmt.Println(l)
+	t := TreeNode{1, nil, nil}
+	t.Left = &TreeNode{2, nil, nil}
+	t.Right = &TreeNode{3, nil, nil}
+	var r []int
+	r = preorderTraversal(&t)
+	fmt.Println(r)
 }
 
 type TreeNode struct {
@@ -23,11 +25,12 @@ func traversal(root *TreeNode, result []int) {
 		traversal(root.Left, result)
 	}
 	if root.Right != nil {
-		traversal(root.Right, gitresult)
+		traversal(root.Right, result)
 	}
 }
 
 func preorderTraversal(root *TreeNode) []int {
 	var result []int
+	traversal(root, result)
 	return result
 }
